@@ -94,11 +94,11 @@ function jjamerson_lb_preprocess_page(&$variables) {
   }
 
   if (drupal_is_front_page() ) {
-    drupal_add_js('//maps.googleapis.com/maps/api/js?libraries=geometry', array('type'  => 'external'));
 
+    //drupal_add_js('//maps.googleapis.com/maps/api/js?libraries=geometry', array('type'  => 'external'));
     // VideoJS components:
-    drupal_add_js('//vjs.zencdn.net/4.12/video.js', array('type'  => 'external', 'scope' => 'footer'));
-    drupal_add_css('//vjs.zencdn.net/4.12/video-js.css', array('type'  => 'external'));
+    //drupal_add_js('//vjs.zencdn.net/4.12/video.js', array('type'  => 'external', 'scope' => 'footer'));
+    //drupal_add_css('//vjs.zencdn.net/4.12/video-js.css', array('type'  => 'external'));
 
     /* inline JS for aligning <div> height matches with other divs, compatible with all major browsers, by jsong */
     /* on click attached to the selected blocks to make the whole area is clickable, by jsong */
