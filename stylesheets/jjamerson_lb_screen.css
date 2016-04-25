@@ -66,11 +66,11 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* This is a class in h5bp that hides elements but keeps them
+/* This is a class in h5bp that hides elements but keeps them 
    accessible to screen readers, packaged as a mixin: */
 #block-fb-social-custom-like-box,
 #block-fb-social-custom-like-box-admissions {
-  /* To Do: Make the width of the box responsive. The module outputs with as
+  /* To Do: Make the width of the box responsive. The module outputs with as 
      a fixed pixel value using an inline style. Which is lame. */
 }
 @media (min-width: 768px) and (max-width: 979px) {
@@ -5063,7 +5063,7 @@ body.page-node-2248436 .region-sidebar-first #block-berklee-site-section-menu {
     margin: 0;
     padding: 0;
     display: block;
-
+    
     &:before {
       content: 'Boston Programs';
       color: #616161;
@@ -5077,7 +5077,7 @@ body.page-node-2248436 .region-sidebar-first #block-berklee-site-section-menu {
         font-size: 16px;
       }
     }
-
+    
   }
   */
 }
@@ -6148,7 +6148,7 @@ body.page-node-2230211.node-type-hybrid-homepagex .row-4 {
   margin-top: 13px;
   /*.media-element-wrapper, img {
     clear: right;
-    width: 250px !important;
+    width: 250px !important; 
     height: auto !important;
     float: right;
     margin-left: 1.5em;
@@ -6190,7 +6190,7 @@ body.page-node-2230211.node-type-hybrid-homepagex .row-4 {
       .field-name-field-photo-credit {
         display: none;
       }
-
+      
       .view-id-bt_content_views.view-display-id-block_4 {
         img {
           width: 40% !important;
@@ -6201,7 +6201,7 @@ body.page-node-2230211.node-type-hybrid-homepagex .row-4 {
         figcaption {
           width: 40%;
           margin-right: 0;
-          margin-left: 5px;
+          margin-left: 5px;   
         }
       }
       */
@@ -7850,6 +7850,10 @@ $s-width: 480px;
 	@media (min-width: 768px) {}
 
 **/
+.region-emergency-bar {
+  background-color: #fff;
+}
+
 .mobileMenu.expanded {
   height: 200%;
 }
@@ -8012,6 +8016,29 @@ body.front .front-block h3 {
   text-transform: uppercase;
   color: #fff;
   margin-bottom: 8px;
+}
+body.front .front-block .each-block-description {
+  color: #fff;
+  text-align: left;
+  text-shadow: 1px 1px 4px #000;
+  font-size: 115%;
+  padding: 12px;
+  background-color: rgba(123, 139, 150, 0.8);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-border-top-right-radius: 30px;
+  -webkit-border-bottom-left-radius: 30px;
+  -moz-border-radius-topright: 30px;
+  -moz-border-radius-bottomleft: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  display: none;
+}
+body.front .front-block .each-block-description p {
+  vertical-align: middle;
 }
 body.front .front-block.search-catalog .btn-libguides, body.front .front-block.search-leadsheet .btn-libguides {
   display: none;
@@ -9061,5 +9088,49 @@ $s-width: 480px;
     width: 31%;
   }
 }
+/* feedback_simple module CSS: ********************************
+ * duplecated CSS add here to make it work on 3rd party sites
+ *************************************************************/
+#feedback_simple a {
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  position: fixed;
+  text-decoration: none !important;
+  z-index: 9999;
+}
 
-.region-emergency-bar{background-color: #fff;}
+.side-tab-feedback_simple {
+  display: block;
+  background-color: rgba(238, 36, 60, 0.85);
+  right: -66px;
+  padding: 12px 16px;
+  color: #fff !important;
+  letter-spacing: 1px;
+  font-size: 18px !important;
+  line-height: 16px !important;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.side-tab-feedback_simple:hover {
+  color: #fff !important;
+  background-color: #ee243c;
+  border-radius: 18px 18px 0 0;
+  -moz-border-radius: 18px 18px 0 0;
+  -webkit-border-radius: 18px 18px 0 0;
+}
+
+@media (max-width: 767px) {
+  .side-tab-feedback_simple {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+}
+/**********************************************************/

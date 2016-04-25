@@ -1,6 +1,33 @@
-// to replace/attache Onelogin logout link
-/*
 jQuery(document).ready(function(){
-	jQuery("#block-menu-menu-menu-login-menu ul.menu li:nth-child(2) a").attr("href", "/user/logout?current=https://berklee.onelogin.com/logout");
-});
+
+	// display each front block description on mouseover
+/*
+	jQuery('.front-block .each-block-description').mouseenter(function(){
+		var $this = jQuery(this);
+		$this.stop();
+		$this.fadeOut(0);
+		$this.fadeIn(1000);
+		console.log('mounseenter');
+	});
+	jQuery('.front-block .each-block-description').mouseleave(function(){
+		var $this = jQuery(this);
+		$this.stop();
+		$this.fadeIn(0);
+		$this.fadeOut(1000);
+		console.log('mounseleave');
+	});
 */
+
+	jQuery('.front-block').hover(
+		function(){
+			var $this = jQuery(this);
+			$this.find('.each-block-description').stop().fadeOut(0).delay(1000).fadeIn(100);
+		},
+		function(){
+			var $this = jQuery(this);
+			$this.find('.each-block-description').stop().fadeIn(0).fadeOut(100);
+		}
+	);
+
+
+});

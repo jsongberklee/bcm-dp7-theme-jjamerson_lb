@@ -321,25 +321,6 @@ jQuery(document).ready(function($){
   }
 });
 jQuery(document).ready(function($){
-
-	var check_emergency_cookie = function(c){
-		var duration = 3600 * 3 * 1000; // 3 hours
-		//var duration = 60 * 1000; // for debugging
-		var targetStamp = $.cookie('mdev_emergency_duration');
-		var now = $.now();
-
-		if(targetStamp == null || targetStamp < now){
-			if(c==undefined){
-				$.cookie('mdev_emergency_duration', now+duration, {path:'/', domain:'berklee.edu'});
-				//$.cookie('mdev_emergency_duration', now+duration, {path:'/', domain:'lb.dev'}); // for debugging
-				console.debug("cookie reset-> "+ $.cookie('mdev_emergency_duration'));
-			}
-			return false;
-		}else{
-			return true;
-		}
-	};
-
   if ( $('body').hasClass('emergency') ){
     var classes = $('body').attr('class').split(' ');
     for (i = 0; i < classes.length; i++) {
@@ -353,45 +334,27 @@ jQuery(document).ready(function($){
     var emergencyBar = $(this);
     var emergencyExpand = $('span.expand-button', this);
     $(this).css('marginTop', '0px');
-    // close
     $('.container', this).click(function() {
-
       emergencyBar.css('marginTop', '-300px');
       emergencyExpand.css('marginTop', '300px');
       emergencyExpand.css('opacity', 0.9);
       rememberCollapsed('add', '|' + emergencyId);
-      check_emergency_cookie();
-
     });
-    //open
     emergencyExpand.click(function() {
       $(this).css('opacity', 0);
       emergencyBar.css('marginTop', '0');
       rememberCollapsed('remove', emergencyId);
-			$.cookie('mdev_emergency_duration', '', {path:'/', domain:'berklee.edu', expires: -1});
-			//$.cookie('mdev_emergency_duration', '', {path:'/', domain:'lb.dev', expires: -1}); // for debugging
     });
-
-		// the bar remains as closed
-		if(check_emergency_cookie('loaded') == true){
-			emergencyBar.css('marginTop', '-300px');
-			emergencyExpand.css('marginTop', '300px');
-			emergencyExpand.css('opacity', 0.9);
-		}
-
+    if (typeof(Storage) != undefined && localStorage != null && emergencyId != undefined) {
+      var isCollapsed = rememberCollapsed('check', emergencyId );
+      if (isCollapsed > -1) {
+        emergencyBar.css('marginTop', '-300px');
+        emergencyExpand.css('marginTop', '300px');
+        emergencyExpand.css('opacity', 0.9);
+      }
+    }
   });
 });
-/*
-jQuery(window).unload(function($) {
-	//$.cookie('mdev_emergency_duration',0);
-	$.cookie.del('myCookie');
-	return "Cookie removed";
-});
-jQuery(window).on('beforeunload',function() {
-    return 'Are you sure ?';
-});
-*/
-
 jQuery(document).ready( function($) {
   $('.form-item').each(function() {
     var label = $('> label', this);
@@ -1881,12 +1844,39 @@ jQuery(document).ready(function($){
     });
   }
 });
-// to replace/attache Onelogin logout link
-/*
 jQuery(document).ready(function(){
-	jQuery("#block-menu-menu-menu-login-menu ul.menu li:nth-child(2) a").attr("href", "/user/logout?current=https://berklee.onelogin.com/logout");
-});
+
+	// display each front block description on mouseover
+/*
+	jQuery('.front-block .each-block-description').mouseenter(function(){
+		var $this = jQuery(this);
+		$this.stop();
+		$this.fadeOut(0);
+		$this.fadeIn(1000);
+		console.log('mounseenter');
+	});
+	jQuery('.front-block .each-block-description').mouseleave(function(){
+		var $this = jQuery(this);
+		$this.stop();
+		$this.fadeIn(0);
+		$this.fadeOut(1000);
+		console.log('mounseleave');
+	});
 */
+
+	jQuery('.front-block').hover(
+		function(){
+			var $this = jQuery(this);
+			$this.find('.each-block-description').stop().fadeOut(0).delay(1000).fadeIn(100);
+		},
+		function(){
+			var $this = jQuery(this);
+			$this.find('.each-block-description').stop().fadeIn(0).fadeOut(100);
+		}
+	);
+
+
+});
 jQuery(document).ready(function($){
 
 	// this file is duplicated from base jjamerson theme /js/source/search.js
