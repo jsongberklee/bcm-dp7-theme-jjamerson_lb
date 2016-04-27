@@ -1867,11 +1867,12 @@ jQuery(document).ready(function(){
 	jQuery('.front-block').hover(
 		function(){
 			var $this = jQuery(this);
-			$this.find('.each-block-description').stop().fadeOut(0).delay(1000).fadeIn(100);
+			//$this.find('.each-block-description').stop().fadeOut(0).delay(1000).fadeIn(300);
+			$this.find('.each-block-description').stop().fadeOut(0).fadeIn(300).css('display','flex');
 		},
 		function(){
 			var $this = jQuery(this);
-			$this.find('.each-block-description').stop().fadeIn(0).fadeOut(100);
+			$this.find('.each-block-description').stop().fadeIn(0).fadeOut(50);
 		}
 	);
 
