@@ -1377,6 +1377,12 @@ form.is-useful-form select {
   border-top: 1px dotted #aaa;
 }
 
+.views-exposed-widgets > div {
+  display: inline-block;
+  vertical-align: bottom;
+  margin-right: 10px;
+}
+
 /* MEDIA QUERIES FOR RESPONSIVE ***************************/
 /** layout variables
 $huge:'(min-width:1600px)';
